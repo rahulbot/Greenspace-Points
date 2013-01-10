@@ -12,8 +12,15 @@ step to help cities subscribe to this park-oriented way of thinking.
 Example
 -------
 
-Open up the `score_my_city.rb` file and fill in all the values. Like I said, this can take a long time
-and effort to figure out.  Then run this:
+You need to know a bunch of things to compute your ParkScore.  Like I said, these can take a long time
+and effort to figure out.  Here's the list:
+* the median size of all the public parks in your town, in acres
+* the percentage of city area that is public park lands
+* how much money per person is spent per year on parks and recreation (in dollars)
+* how many playgrounds are there (per 100,000 people)
+* what percentage of the population lives within a half-mile walk of a park entrance
+
+Once you have all that, open up the `score_my_city.rb` and fill them in.  Then run this:
 ```
 ruby -Ilib score_my_city.rb
 ```
