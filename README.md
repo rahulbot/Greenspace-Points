@@ -1,10 +1,10 @@
 ParkScore Calculator
 ====================
 
-The Trust for Public Land has developer the ParkScore process and algorithm for evaluating how 
-well cities are meeting the need for parks.  It did this for the biggest 40 cities in the US.  The
-process is quite involved, but I saw a chance to provide an 80/20 solution that let other cities
-figure out their parkscore quickly.  This Ruby library can be used to compute your own cities Parkscore,
+The Trust for Public Land has developer the [ParkScore](http://parkscore.tpl.org) process and algorithm 
+for evaluating how well cities are meeting the need for parks.  It did this for the biggest 40 cities in 
+the US.  The process is quite involved, but I saw a chance to provide an 80/20 solution that let other cities
+figure out their ParkScore quickly.  This Ruby library can be used to compute your own city's ParkScore,
 if you know all the right inputs.  That isn't trivial.  This of course doesn't supply all the cool 
 analysis that TPL did to think about need areas and so on, but I think it is still a useful first 
 step to help cities subscribe to this park-oriented way of thinking.
@@ -12,7 +12,8 @@ step to help cities subscribe to this park-oriented way of thinking.
 Example
 -------
 
-Open up the `score_my_city.rb` file and fill in all the values. Then run this:
+Open up the `score_my_city.rb` file and fill in all the values. Like I said, this can take a long time
+and effort to figure out.  Then run this:
 ```
 ruby -Ilib score_my_city.rb
 ```
