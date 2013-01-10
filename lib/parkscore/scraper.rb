@@ -48,7 +48,7 @@ class Parkscore::Scraper
               density, park_acres, people_per_park_acre, rank, population, 
               media_park_size_pts, park_percentage_pts, spending_per_capita_pts, playgrounds_per_10k_pts, 
               accessibility_pts,
-              parkscore, rank]
+              parkscore]
 
       @log.info '  ranked: '+rank
 
@@ -66,7 +66,7 @@ class Parkscore::Scraper
         "density", "park_acres", "people_per_park_acre", "rank", "population", 
         "score_median_park_size", "score_park_percentage", "score_spendingpercapita", "score_playgrounds_per_10k",
         "score_accessibility",
-        "parkscore","rank"]
+        "parkscore"]
     end
 
     def city_names

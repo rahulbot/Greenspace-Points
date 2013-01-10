@@ -33,7 +33,7 @@ class Parkscore::Calculator
 
   # http://parkscore.tpl.org/methodology.php
   def score city
-    100* ( (acreage_score(city) + services_score(city) + access_score(city)) / 120.0)
+    (100* ( (acreage_score(city) + services_score(city) + access_score(city)) / 120.0)).round
   end
 
   def acreage_score city
@@ -50,33 +50,28 @@ class Parkscore::Calculator
       2.0*score_for_access(city.access_percentage)
   end
 
-  private 
+  def score_for_access value
+    # I couldn't scrape these values on a per-city basis (they are only in the PDF reports),
+    # so I just copied these from the methodology page on the website
+    min = 0.26
+    max = 0.97
+    # note that for access Rhan Donahue told me they used min->max for bucket size, NOT min->2*median
+    bucket_size = (max - min) / (BUCKETS-1)
+    return 1 + ((value - min) / bucket_size).round
+  end       
 
-    def score_for_access value
-      # I couldn't scrape these values on a per-city basis (they are only in the PDF reports),
-      # so I just copied these from the methodology page on the website
-      min = 0.26
-      max = 0.97
-      median = 0.50
-      score_from_details_for value, min, max, median
-    end       
-  
-    def score_for property, value
-      min = min_for property
-      max = max_for property
-      median = median_for property
-      score_from_details_for value, min, max, median
-    end
+  def score_for property, value
+    min = min_for property
+    max = max_for property
+    median = median_for property
+    threshold = 2.0*median
+    bucket_size = (threshold - min) / (BUCKETS - 1)
+    return BUCKETS if value > threshold
+    1 + ((value - min) / bucket_size).round
+  end
 
-    def score_from_details_for value, min, max, median
-      threshold = 2.0*median
-      bucket_size = (threshold - min) / BUCKETS
-      return BUCKETS if value > threshold
-      (value - min) / bucket_size
-    end
-
-    def all_values property
-      @cities.collect { |city| city.send(property) }
-    end
+  def all_values property
+    @cities.collect { |city| city.send(property) }
+  end
 
 end
