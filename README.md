@@ -11,9 +11,10 @@ contacting the person that did the calculations for them.  This of course doesn'
 all the cool analysis that TPL did to think about need areas and so on, but I think it is 
 still a useful first step to help cities subscribe to this park-oriented way of thinking. 
 
-This library is simply an independent implementation of their methodology for computing the scores, 
-as described on their website.  It cannot do the detailed analysis of GIS data to help you 
-compute the detailed policy suggestions that their city reports have.
+This library is simply an independent implementation of [their methodology](http://parkscore.tpl.org/methodology.php) 
+for computing the scores, as described on their website.  It cannot do the detailed 
+analysis of GIS data to help you compute the detailed policy suggestions that their 
+city reports have.
 
 Example
 -------
