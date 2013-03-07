@@ -1,17 +1,17 @@
 require 'test/unit'
-require 'parkscore'
+require 'greenspacepoints'
 
-class ParkscoreTest < Test::Unit::TestCase
+class GreenspacepointsTest < Test::Unit::TestCase
 
   def setup
-    @calc = Parkscore.getCalculator
+    @calc = Greenspacepoints.getCalculator
     @albuquerque = @calc.cities[0]
   end
 
 #  def test_recalculate_seed_scores
 #    errors = 0
 #    @calc.cities.each do |city|
-#      errors+=1 if (@calc.score(city)-city.parkscore).abs > 1
+#      errors+=1 if (@calc.score(city)-city.greenspacepoints).abs > 1
 #    end
 #    assert_equal 0, errors
 #  end
@@ -48,8 +48,8 @@ class ParkscoreTest < Test::Unit::TestCase
     assert_equal @albuquerque.accessibility_score, @calc.access_score(@albuquerque)
   end
 
-  def test_city_final_parkscore
-    assert_equal @albuquerque.parkscore, @calc.score(@albuquerque)
+  def test_city_final_greenspacepoints
+    assert_equal @albuquerque.greenspacepoints, @calc.score(@albuquerque)
   end
 
 end

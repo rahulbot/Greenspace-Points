@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require 'parkscore'
+require 'greenspacepoints'
 
-scraper = Parkscore::Scraper.new
+scraper = Greenspacepoints::Scraper.new
 scraper.scrape

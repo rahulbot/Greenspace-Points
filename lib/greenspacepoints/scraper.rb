@@ -3,14 +3,14 @@ require 'watir-webdriver'
 require 'logger'
 require 'csv'
 
-class Parkscore::Scraper
+class Greenspacepoints::Scraper
 
   def initialize
     @log = Logger.new 'scraper.log'
   end
 
   def scrape
-    @output_csv = init_csv Parkscore::SEED_DATA_CSV
+    @output_csv = init_csv Greenspacepoints::SEED_DATA_CSV
     
     @log.info "Creating browser"
     @browser = Watir::Browser.new
@@ -41,14 +41,14 @@ class Parkscore::Scraper
       spending_per_capita_pts = @browser.span(:id=>'cityinfo_score_spendingpercapita').text.gsub(/\$/,"")
       playgrounds_per_10k_pts = @browser.span(:id=>'cityinfo_score_playgroundsper10k').text
       accessibility_pts = @browser.span(:id=>'cityinfo_score_accessibility').text
-      parkscore = @browser.span(:id=>'cityinfo_parkscore').text
+      greenspacepoints = @browser.span(:id=>'cityinfo_parkscore').text
       rank = @browser.span(:id=>'cityinfo_rank').text
 
       @output_csv << [city_name, acres, median_park_size, park_percentage, spending_per_capita, playgrounds_per_10k, 
               density, park_acres, people_per_park_acre, rank, population, 
               media_park_size_pts, park_percentage_pts, spending_per_capita_pts, playgrounds_per_10k_pts, 
               accessibility_pts,
-              parkscore]
+              greenspacepoints]
 
       @log.info '  ranked: '+rank
 
@@ -66,7 +66,7 @@ class Parkscore::Scraper
         "density", "park_acres", "people_per_park_acre", "rank", "population", 
         "score_median_park_size", "score_park_percentage", "score_spendingpercapita", "score_playgrounds_per_10k",
         "score_accessibility",
-        "parkscore"]
+        "greenspacepoints"]
     end
 
     def city_names

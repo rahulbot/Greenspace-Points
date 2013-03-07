@@ -1,9 +1,9 @@
 
-class Parkscore::City
+class Greenspacepoints::City
 
   attr_accessor :name, :acres, :median_park_size, :park_percentage, :spending_per_capita, :playgrounds_per_10k, :pop_per_acre,
     :park_acres, :people_per_park_acre, :rank, :population, :median_park_size_score, :park_percentage_score, :spending_per_capita_score,
-    :playgrounds_per_10k_score, :accessibility_score, :parkscore, :access_percentage
+    :playgrounds_per_10k_score, :accessibility_score, :greenspacepoints, :access_percentage
 
   def self.fromCsvRow row
     # couldn't scrape these, so gotta do it by hand :-(
@@ -67,7 +67,7 @@ class Parkscore::City
     city.spending_per_capita_score, = Float(row[13])
     city.playgrounds_per_10k_score = Float(row[14])
     city.accessibility_score = Float(row[15])
-    city.parkscore = Float(row[16])
+    city.greenspacepoints = Float(row[16])
     city.access_percentage = Float(city_name_to_access_percentage[city.name])
     city
   end

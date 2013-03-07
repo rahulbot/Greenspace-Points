@@ -1,7 +1,7 @@
 require 'csv'
-require 'parkscore/city.rb'
+require 'greenspacepoints/city.rb'
 
-class Parkscore::Calculator
+class Greenspacepoints::Calculator
 
   BUCKETS = 20
 
@@ -11,7 +11,7 @@ class Parkscore::Calculator
     @cities = Array.new
     # load all the sample data scraped from their website
     CSV.foreach(seed_data_csv,:headers=>:first_row) do |row|
-      city = Parkscore::City::fromCsvRow row 
+      city = Greenspacepoints::City::fromCsvRow row 
       cities.push city
     end
   end
@@ -31,7 +31,7 @@ class Parkscore::Calculator
     (len % 2 == 1) ? sorted[len/2] : (sorted[len/2 - 1] + sorted[len/2]).to_f / 2
   end
 
-  # http://parkscore.tpl.org/methodology.php
+  # http://greenspacepoints.tpl.org/methodology.php
   def score city
     (100* ( (acreage_score(city) + services_score(city) + access_score(city)) / 120.0)).round
   end

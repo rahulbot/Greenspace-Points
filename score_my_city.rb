@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
-require 'parkscore'
+require 'greenspacepoints'
 
-calc = Parkscore::getCalculator
+calc = Greenspacepoints::getCalculator
 
-city = Parkscore::City.new
+city = Greenspacepoints::City.new
 city.name = "NowhereVille"
 
 # the median size of all the public parks in your town, in acres
@@ -23,4 +23,4 @@ city.access_percentage = 0.6
 
 score = calc.score(city)
 
-print "The city of "+city.name+" has a Parkscore around "+score.to_s+"\n"
+print "The city of "+city.name+" has about "+score.to_s+" GreenspacePoints\n"
